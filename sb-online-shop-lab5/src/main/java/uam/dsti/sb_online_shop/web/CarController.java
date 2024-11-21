@@ -10,7 +10,7 @@ import uam.dsti.sb_online_shop.domain.CarOwnerRepository;
 import uam.dsti.sb_online_shop.domain.CarRepository;
 
 @RestController
-@RequestMapping("/cars") // Maps all routes prefixed with /cars
+// @RequestMapping("/cars") // Maps all routes prefixed with /cars
 public class CarController {
 
     @Autowired
@@ -19,9 +19,9 @@ public class CarController {
     @Autowired
     private CarOwnerRepository orepository;
 
-    // @RequestMapping("/cars")
+    @RequestMapping("/cars")
     // @GetMapping("/cars")
-    @GetMapping // Handles GET requests to /cars
+    // @GetMapping // Handles GET requests to /cars
     
     public Iterable<Car> getCars() {
         return repository.findAll(); // Retrieves all cars from the database
