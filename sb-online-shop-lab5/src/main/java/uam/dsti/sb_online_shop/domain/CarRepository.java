@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(path = "vehicules")  // Spécifie le nom de l'endpoint ('vehicules')
+@RepositoryRestResource(path = "vehicles")  // Spécifie le nom de l'endpoint ('vehicles')
 public interface CarRepository  extends CrudRepository<Car, Long>{
     
     // Fetch cars by brand 
