@@ -9,6 +9,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazy Initializer", "handler"})
 @Entity
 public class CarOwner {
     @Id
@@ -24,7 +28,8 @@ public class CarOwner {
         this.lastname = lastname;
 
     }
-
+    
+    @JsonIgnore
     @OneToMany(cascade=CascadeType.ALL, mappedBy="owner")
 
     private List<Car> cars;
