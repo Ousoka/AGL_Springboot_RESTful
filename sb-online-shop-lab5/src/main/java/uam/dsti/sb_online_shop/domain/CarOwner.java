@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,10 +31,10 @@ public class CarOwner {
 
     }
     
-    //@JsonIgnore
-    //@OneToMany(cascade=CascadeType.ALL, mappedBy="owner")
-    @OneToMany(mappedBy = "owner")
-    @JsonBackReference
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="owner")
+    //@OneToMany(mappedBy = "owner")
+    //@JsonBackReference
     private List<Car> cars;
 
 

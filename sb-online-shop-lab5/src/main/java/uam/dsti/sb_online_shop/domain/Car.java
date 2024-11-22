@@ -2,8 +2,8 @@ package uam.dsti.sb_online_shop.domain;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Car {
 
     @Id
@@ -49,13 +49,13 @@ public class Car {
         this.owner = owner;
     }
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "owner") // Use double quotes for the name attribute
 
     //@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner")
-    @JsonManagedReference
+    //@JsonManagedReference
     private CarOwner owner;
 
     public Long getId() {

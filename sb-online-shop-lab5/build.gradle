@@ -38,6 +38,8 @@ dependencies {
 	//implementation 'org.hibernate:hibernate-core'
 	implementation 'org.springframework.boot:spring-boot-starter-logging'
 	//implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3' // Add this if it's missing
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 }
 
 tasks.named('test') {
