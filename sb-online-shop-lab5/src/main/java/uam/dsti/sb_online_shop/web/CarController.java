@@ -30,9 +30,9 @@ public class CarController {
     @GetMapping("/cars")
     public Iterable<Car> getCars() {
         Iterable<Car> cars = repository.findAll();
-        for (Car car : cars) {
-            Hibernate.initialize(car.getOwner());  // Explicitly initialize owner
-        }
+        //for (Car car : cars) {
+        //    Hibernate.initialize(car.getOwner());  // Explicitly initialize owner
+        //}
         return cars;
     }
 
