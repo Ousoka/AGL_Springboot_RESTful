@@ -2,17 +2,17 @@ package uam.dsti.sb_online_shop.domain;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties({"hibernateLazy Initializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazy Initializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class CarOwner {
     @Id
@@ -29,10 +29,37 @@ public class CarOwner {
 
     }
     
-    @JsonIgnore
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="owner")
-
+    //@JsonIgnore
+    //@OneToMany(cascade=CascadeType.ALL, mappedBy="owner")
+    @OneToMany(mappedBy = "owner")
+    @JsonBackReference
     private List<Car> cars;
+
+
+    public long getOwnerid() {
+        return ownerid;
+    }
+
+    public void setOwnerid(long ownerid) {
+        this.ownerid = ownerid;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
  
     public List<Car> getCars() {
         return cars;
